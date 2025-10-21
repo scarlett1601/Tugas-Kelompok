@@ -45,15 +45,12 @@ void tambahDataSiswa() {
     cin >> data.Nilai.IPA;
     cin.ignore();
 
-    data.Nilai.akhir = nilaiAkhir(data.Nilai);
-
     fileOutput << "Nama  : " << data.nama<< " - " << "NISN : " << data.NISN<< " - " << "Jurusan : "<< data.jurusan<<endl;
     fileOutput << "Nilai dari "<<data.nama<<" / "
                << "Matematika : "<<data.Nilai.Mtk<<", "
                << "Bahasa Indonesia : "<<data.Nilai.BIn<<", "
                << "Nilai Bahasa Inggris : "<<data.Nilai.Big<<", "
-               << "Nilai IPA : "<<data.Nilai.IPA<<endl
-               << "Nilai Akhir : "<<data.Nilai.akhir<<endl<<endl;
+               << "Nilai IPA : "<<data.Nilai.IPA<<endl;
 
     
     }
@@ -84,6 +81,20 @@ void ranking(); // menampilkan data siswa berdasarkan peringkatnya
 
 int main()
 {
-    tampilDataSiswa();
-    return 0;
+    int menu;
+    cout << "Pilih Menu"<<endl;
+    cout << "1. Tambah Data Siswa"<<endl;
+    cout << "2. Tampil Data Siswa";
+    cout << "Pilih Menu : ";
+    cin >> menu;
+
+    if(menu==1){
+        tambahDataSiswa();
+    }
+
+    if(menu==2){
+        tampilDataSiswa();
+    }
+
+  return 0;
 }
