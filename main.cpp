@@ -77,7 +77,29 @@ float nilaiAkhir(nilai n){
     
 };// nilai akhir = 40%matematika+30%IPA+20%B indonesia +20%B Inggris
 
-void ranking(); // menampilkan data siswa berdasarkan peringkatnya
+void ranking(Siswa data[], int jumlahSiswa) { // menampilkan data siswa berdasarkan peringkatnya
+    // bubble sort berdasarkan rata-rata nilai (descending)
+    for (int i = 0; i < jumlahSiswa - 1; i++) {
+        for (int j = 0; j < jumlahSiswa - i - 1; j++) {
+            float rata1 = (data[j].nilai.mat + data[j].nilai.bind + data[j].nilai.bing + data[j].nilai.ipa) / 4;
+            float rata2 = (data[j+1].nilai.mat + data[j+1].nilai.bind + data[j+1].nilai.bing + data[j+1].nilai.ipa) / 4;
+            
+            if (rata1 < rata2) {
+                // tukar posisi
+                Siswa temp = data[j];
+                data[j] = data[j+1];
+                data[j+1] = temp;
+            }
+        }
+    }
+
+    // tampilkan ranking
+    cout << "\n=== PERINGKAT SISWA ===" << endl;
+    for (int i = 0; i < jumlahSiswa; i++) {
+        float rata = (data[i].nilai.mat + data[i].nilai.bind + data[i].nilai.bing + data[i].nilai.ipa) / 4;
+        cout << i + 1 << ". " << data[i].nama << " (" << rata << ")" << endl;
+    }
+}
 
 int main()
 {
