@@ -73,7 +73,7 @@ void tampilDataSiswa(){
 void cariSiswa();// berdasarkan NISN
 
 float nilaiAkhir(nilai n){
-    return (n.Mtk*0.4)+(n.BIn*0.2)+(n.IPA*0.3)+(n.BIn*0.2);
+    return (n.Mtk*0.4)+(n.IPA*0.3)+(n.BIn*0.2)+(n.BIn*0.2);
     
 };// nilai akhir = 40%matematika+30%IPA+20%B indonesia +20%B Inggris
 
